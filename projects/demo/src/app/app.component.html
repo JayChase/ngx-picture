@@ -1,5 +1,14 @@
 <mat-card>
-  <h1 class="mat-title">Dynamic image sizes with Angular</h1>
+  <h1 class="mat-title">Repsonsive images with Angular</h1>
+  <mat-list>
+    <mat-list-item>Repsonsive image sizes</mat-list-item>
+    <mat-list-item>Support for next gen formats</mat-list-item>
+    <mat-list-item
+      >Optional lazy loading using an IntersectionObserver (if supported by
+      browser)
+    </mat-list-item>
+    <mat-list-item>Universal SSR friendly</mat-list-item>
+  </mat-list>
 </mat-card>
 <mat-card>
   <h2 class="mat-h2">Breakpoints</h2>
@@ -14,6 +23,6 @@
   <ngx-picture
     src="assets/images/banner.jpg"
     alt="test"
-    [imageFormats]="['webp', 'jpeg']"
+    [lazyLoad]="true"
   ></ngx-picture>
 </mat-card>

@@ -31,7 +31,7 @@ export type ImageFormat =
 })
 export class PictureComponent implements OnInit, AfterViewInit {
   @Input() src: string;
-  @Input() imageFormats: ImageFormat[];
+  @Input() imageFormats: ImageFormat[] = this.ngxPictureConfig.imageFormats;
   @Input() alt: string;
   @Input() lazyLoad: boolean;
 
@@ -77,6 +77,8 @@ export class PictureComponent implements OnInit, AfterViewInit {
           },
           {}
         );
+
+        this.intersectionObserver.observe(this.elementRef.nativeElement);
       } else {
         this.show = true;
       }

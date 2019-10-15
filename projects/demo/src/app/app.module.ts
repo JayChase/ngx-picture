@@ -28,6 +28,7 @@ export function srcInterpolator(url, imageFormat, breakpoint, width) {
     NgxPictureModule.forRoot({
       breakpoints: DEFAULT_BREAKPOINTS,
       widths: DEFAULT_WIDTHS,
+      imageFormats: ['webp', 'jpeg'],
       srcInterpolator
     })
   ],
