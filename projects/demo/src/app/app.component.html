@@ -1,0 +1,19 @@
+<mat-card>
+  <h1 class="mat-title">Dynamic image sizes with Angular</h1>
+</mat-card>
+<mat-card>
+  <h2 class="mat-h2">Breakpoints</h2>
+  <mat-list>
+    <mat-list-item *ngFor="let breakpoint of breakpoints"
+      ><span class="mat-body-1">{{ breakpoint }}</span></mat-list-item
+    >
+  </mat-list>
+</mat-card>
+<mat-card>
+  <h2 class="mat-h2">ngx picture</h2>
+  <ngx-picture
+    src="assets/images/banner.jpg"
+    alt="test"
+    [imageFormats]="['webp', 'jpeg']"
+  ></ngx-picture>
+</mat-card>
