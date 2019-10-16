@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build ngx-picture && ng build demo --prod",
     "copy-files": "copy README.md dist\\ngx-picture && copy LICENSE.md dist\\ngx-picture",
+    "coverage": "ng test --no-watch --code-coverage",
     "pack": "cd dist/ngx-responsive-image && npm pack",
     "prep-lib": "npm run build && npm run copy-files && npm run pack",
     "test": "ng test",
