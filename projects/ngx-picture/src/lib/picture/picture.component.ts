@@ -31,57 +31,58 @@ export type ImageFormat =
 })
 export class PictureComponent implements OnInit, AfterViewInit {
   @Input() src: string;
-  @Input() imageFormats: ImageFormat[] = this.ngxPictureConfig.imageFormats;
+  @Input() imageFormats = this.ngxPictureConfig.imageFormats;
+  @Input() breakpoints = this.ngxPictureConfig.breakpoints;
+  @Input() widths = this.ngxPictureConfig.widths;
   @Input() alt: string;
   @Input() lazyLoad: boolean;
 
-  breakpoints = this.ngxPictureConfig.breakpoints;
-  widths = this.ngxPictureConfig.widths;
   srcInterpolator = this.ngxPictureConfig.srcInterpolator;
   show = false;
 
   private intersectionObserver: IntersectionObserver;
 
   constructor(
-    @Inject(PLATFORM_ID) public platformId: any,
+    @Inject(PLATFORM_ID) private platformId: any,
     @Inject(NGX_PICTURE_CONFIG) private ngxPictureConfig: NgxPictureConfig,
     private elementRef: ElementRef,
     private changeDetectorRef: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
-    if (isPlatformServer(this.platformId) || !this.lazyLoad) {
+    if (isPlatformServer(this.platformId)) {
       this.show = true;
     }
   }
 
   ngAfterViewInit() {
-    if (this.lazyLoad) {
-      if (window && 'IntersectionObserver' in window) {
-        this.intersectionObserver = new IntersectionObserver(
-          (entries: Array<IntersectionObserverEntry>) => {
-            if (
-              entries.find((entry: IntersectionObserverEntry) => {
-                return (
-                  entry.isIntersecting &&
-                  entry.target === this.elementRef.nativeElement
-                );
-              })
-            ) {
-              this.intersectionObserver.unobserve(
-                this.elementRef.nativeElement
+    if (this.lazyLoad && window && 'IntersectionObserver' in window) {
+      this.intersectionObserver = new IntersectionObserver(
+        (entries: Array<IntersectionObserverEntry>) => {
+          if (
+            entries.find((entry: IntersectionObserverEntry) => {
+              return (
+                entry.isIntersecting &&
+                entry.target === this.elementRef.nativeElement
               );
-              this.show = true;
-              this.changeDetectorRef.detectChanges();
-            }
-          },
-          {}
-        );
+            })
+          ) {
+            this.showLazyPicture();
+          }
+        },
+        {}
+      );
 
-        this.intersectionObserver.observe(this.elementRef.nativeElement);
-      } else {
-        this.show = true;
-      }
+      this.intersectionObserver.observe(this.elementRef.nativeElement);
+    } else {
+      this.show = true;
+      this.changeDetectorRef.detectChanges();
     }
+  }
+
+  private showLazyPicture() {
+    this.intersectionObserver.unobserve(this.elementRef.nativeElement);
+    this.show = true;
+    this.changeDetectorRef.detectChanges();
   }
 }
