@@ -16,12 +16,14 @@ describe('PictureComponent', () => {
     srcInterpolator: (url, imageFormat, breakpoint, width) =>
       `${url}-${width}.${imageFormat}`
   };
-  const testUrl = 'http://test/';
+  const testUrl = 'http://test';
+  const testAlt = 'alt test text';
 
   function baseBeforeEach() {
     fixture = TestBed.createComponent(PictureComponent);
     component = fixture.componentInstance;
     component.src = testUrl;
+    component.alt = testAlt;
     fixture.detectChanges();
   }
 
@@ -60,7 +62,7 @@ describe('PictureComponent', () => {
   describe('picture rendering', () => {
     beforeEach(baseBeforeEach);
 
-    it('should render a srcSet for each breakpoint/imageFormat', () => {
+    it('should render a srcset for each breakpoint', () => {
       const sources = fixture.debugElement.queryAll(By.css('source'));
       const hasAllBreakpoints = nxgPictureConfig.breakpoints
         .map(breakpoint => {
@@ -74,18 +76,51 @@ describe('PictureComponent', () => {
       expect(hasAllBreakpoints).toBeTruthy();
     });
 
-    it('should render a srcSet for each breakpoint', () => {
+    it('should render srcsets for each imageFormat', () => {
       const sources = fixture.debugElement.queryAll(By.css('source'));
-      const hasAllBreakpoints = nxgPictureConfig.breakpoints
-        .map(breakpoint => {
-          return (
-            sources.filter(source => source.properties.media === breakpoint)
-              .length === 2
-          );
-        })
-        .every(breakpointCount => breakpointCount);
+      const imageFormatsCount = sources
+        .map(source => source.properties.srcset)
+        .filter(srcset => srcset.includes('jpeg')).length;
 
-      expect(hasAllBreakpoints).toBeTruthy();
+      expect(imageFormatsCount).toEqual(3);
+    });
+
+    it('should set the img src to the component src value', () => {
+      const img = fixture.debugElement.query(By.css('img'));
+
+      expect(img.properties.src).toEqual(testUrl);
+    });
+
+    it('should set the img alt to the component alt value', () => {
+      const img = fixture.debugElement.query(By.css('img'));
+
+      expect(img.properties.alt).toEqual(testAlt);
+    });
+  });
+
+  describe('srcset interpolation', () => {
+    const breakpoint = 'test';
+    const imageFormat = 'jpeg';
+    const width = 100;
+
+    beforeEach(() => {
+      fixture = TestBed.createComponent(PictureComponent);
+      component = fixture.componentInstance;
+      component.breakpoints = [breakpoint];
+      component.imageFormats = [imageFormat];
+      component.widths = [width];
+      component.src = testUrl;
+    });
+
+    it('should call the srcInterpolator with the correct parameters', () => {
+      spyOn(component, 'srcInterpolator');
+      fixture.detectChanges();
+      expect(component.srcInterpolator).toHaveBeenCalledWith(
+        testUrl,
+        imageFormat,
+        breakpoint,
+        width
+      );
     });
   });
 

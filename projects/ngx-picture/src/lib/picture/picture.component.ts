@@ -1,6 +1,7 @@
 import { isPlatformServer } from '@angular/common';
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   ElementRef,
@@ -27,7 +28,8 @@ export type ImageFormat =
 @Component({
   selector: 'ngx-picture',
   templateUrl: './picture.component.html',
-  styleUrls: ['./picture.component.scss']
+  styleUrls: ['./picture.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PictureComponent implements OnInit, AfterViewInit {
   @Input() src: string;
