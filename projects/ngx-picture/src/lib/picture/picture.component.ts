@@ -39,7 +39,7 @@ export class PictureComponent implements OnInit, AfterViewInit {
   @Input() alt: string;
   @Input() lazyLoad: boolean;
 
-  srcInterpolator = this.ngxPictureConfig.srcInterpolator;
+  @Input() srcInterpolator = this.ngxPictureConfig.srcInterpolator;
   show = false;
 
   private intersectionObserver: IntersectionObserver;
