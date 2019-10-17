@@ -1,1 +1,0 @@
-export const DEFAULT_WIDTHS = [300, 600, 960, 1280, 1920];

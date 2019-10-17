@@ -2,7 +2,7 @@
   <ng-container *ngFor="let imageFormat of imageFormats">
     <source
       *ngFor="let breakpoint of breakpoints; index as i"
-      [srcset]="srcInterpolator(src, imageFormat, breakpoint, widths[i])"
+      [srcset]="srcInterpolator(src, imageFormat, breakpoint)"
       [media]="breakpoint"
     />
   </ng-container>

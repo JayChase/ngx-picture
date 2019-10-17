@@ -35,7 +35,6 @@ export class PictureComponent implements OnInit, AfterViewInit {
   @Input() src: string;
   @Input() imageFormats = this.ngxPictureConfig.imageFormats;
   @Input() breakpoints = this.ngxPictureConfig.breakpoints;
-  @Input() widths = this.ngxPictureConfig.widths;
   @Input() alt: string;
   @Input() lazyLoad: boolean;
 

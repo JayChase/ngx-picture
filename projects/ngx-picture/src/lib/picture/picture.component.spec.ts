@@ -10,11 +10,27 @@ describe('PictureComponent', () => {
   let component: PictureComponent;
   let fixture: ComponentFixture<PictureComponent>;
   const nxgPictureConfig: NgxPictureConfig = {
-    widths: [1, 2, 3],
     imageFormats: ['jpeg', 'webp'],
     breakpoints: [Breakpoints.Small, Breakpoints.Medium, Breakpoints.Large],
-    srcInterpolator: (url, imageFormat, breakpoint, width) =>
-      `${url}-${width}.${imageFormat}`
+    srcInterpolator: (url, imageFormat, breakpoint) => {
+      let width: number;
+
+      switch (breakpoint) {
+        case Breakpoints.Small:
+          width = 600;
+          break;
+        case Breakpoints.Medium:
+          width = 960;
+          break;
+        case Breakpoints.Large:
+          width = 1280;
+          break;
+        default:
+          width = 1280;
+          break;
+      }
+      return `${url}-${width}.${imageFormat}`;
+    }
   };
   const testUrl = 'http://test';
   const testAlt = 'alt test text';
@@ -52,10 +68,6 @@ describe('PictureComponent', () => {
 
     it('should set breakpoints to config to config breakpoints', () => {
       expect(component.breakpoints).toEqual(nxgPictureConfig.breakpoints);
-    });
-
-    it('should set widths to config to config widths', () => {
-      expect(component.widths).toEqual(nxgPictureConfig.widths);
     });
   });
 
@@ -101,14 +113,12 @@ describe('PictureComponent', () => {
   describe('srcset interpolation', () => {
     const breakpoint = 'test';
     const imageFormat = 'jpeg';
-    const width = 100;
 
     beforeEach(() => {
       fixture = TestBed.createComponent(PictureComponent);
       component = fixture.componentInstance;
       component.breakpoints = [breakpoint];
       component.imageFormats = [imageFormat];
-      component.widths = [width];
       component.src = testUrl;
     });
 
@@ -118,8 +128,7 @@ describe('PictureComponent', () => {
       expect(component.srcInterpolator).toHaveBeenCalledWith(
         testUrl,
         imageFormat,
-        breakpoint,
-        width
+        breakpoint
       );
     });
   });
