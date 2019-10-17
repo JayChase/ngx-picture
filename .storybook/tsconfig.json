@@ -1,0 +1,11 @@
+{
+  "extends": "../tsconfig.json",
+  "exclude": [
+    "../projects/ngx-picture/src/test.ts",
+    "../projects/ngx-picture/src/**/*.spec.ts"
+  ],
+  "compilerOptions": {
+    "emitDecoratorMetadata": true
+  },
+  "include": ["../projects/ngx-picture/**/*"]
+}
