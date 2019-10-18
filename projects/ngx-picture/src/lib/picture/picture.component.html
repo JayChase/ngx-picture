@@ -4,6 +4,7 @@
       *ngFor="let breakpoint of breakpoints; index as i"
       [srcset]="srcInterpolator(src, imageFormat, breakpoint)"
       [media]="breakpoint"
+      type="image/{{ imageFormat }}"
     />
   </ng-container>
   <img [src]="src" [alt]="alt" />

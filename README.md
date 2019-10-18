@@ -93,34 +93,53 @@ If **lazyLoad** is true the componnent will use an IntersectionObserver (if it i
   <source
     srcset="assets/images/banner-300.webp"
     media="(max-width: 599.99px)"
+    type="image/webp"
   />
   <source
     srcset="assets/images/banner-600.webp"
     media="(min-width: 600px) and (max-width: 959.99px)"
+    type="image/webp"
   />
   <source
     srcset="assets/images/banner-960.webp"
     media="(min-width: 960px) and (max-width: 1279.99px)"
+    type="image/webp"
   />
   <source
     srcset="assets/images/banner-1280.webp"
     media="(min-width: 1280px) and (max-width: 1919.99px)"
+    type="image/webp"
   />
-  <source srcset="assets/images/banner-1920.webp" media="(min-width: 1920px)" />
-  <source srcset="assets/images/banner-300.jpg" media="(max-width: 599.99px)" />
+  <source
+    srcset="assets/images/banner-1920.webp"
+    media="(min-width: 1920px)"
+    type="image/webp"
+  />
+  <source
+    srcset="assets/images/banner-300.jpg"
+    media="(max-width: 599.99px)"
+    type="image/jpeg"
+  />
   <source
     srcset="assets/images/banner-600.jpg"
     media="(min-width: 600px) and (max-width: 959.99px)"
+    type="image/jpeg"
   />
   <source
     srcset="assets/images/banner-960.jpg"
     media="(min-width: 960px) and (max-width: 1279.99px)"
+    type="image/jpeg"
   />
   <source
     srcset="assets/images/banner-1280.jpg"
     media="(min-width: 1280px) and (max-width: 1919.99px)"
+    type="image/jpeg"
   />
-  <source srcset="assets/images/banner-1920.jpg" media="(min-width: 1920px)" />
+  <source
+    srcset="assets/images/banner-1920.jpg"
+    media="(min-width: 1920px)"
+    type="image/jpeg"
+  />
   <img src="assets/images/banner.jpg" alt="test" />
 </picture>
 ```
