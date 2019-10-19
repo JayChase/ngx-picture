@@ -91,14 +91,15 @@ storiesOf('ngx-picture', module)
   .addDecorator(withKnobs)
   .addParameters({
     viewport: {
-      viewports
+      viewports,
+      defaultViewport: 'sm'
     }
   })
   .add('eager load', () => {
     return {
       component: PictureComponent,
       props: {
-        src: text('src', 'banner.jpg'),
+        src: text('src', 'assets/images/banner.jpg'),
         alt: text('alt', 'banner image')
       }
     };
@@ -107,7 +108,7 @@ storiesOf('ngx-picture', module)
     return {
       component: PictureComponent,
       props: {
-        src: text('src', 'banner.jpg'),
+        src: text('src', 'assets/images/banner.jpg'),
         alt: text('alt', 'banner image'),
         lazyLoad: boolean('lazyLoad', true)
       }

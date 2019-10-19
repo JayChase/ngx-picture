@@ -10,6 +10,8 @@
     "pack": "cd dist/ngx-picture && npm pack",
     "prep-lib": "npm run build && npm run copy-files && npm run pack",
     "storybook": "start-storybook -s ./projects/demo/src/assets/images -p 61610",
+    "storybook:build": "build-storybook -c .storybook -o .out",
+    "storybook:build:run": "npm run storybook:build && npx http-server .out",
     "test": "ng test --project=ngx-picture",
     "lint": "ng lint",
     "e2e": "ng e2e"
