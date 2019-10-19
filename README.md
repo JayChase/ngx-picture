@@ -2,6 +2,8 @@
 
 A component to make properly sized images in next generation formats for Angular a bit easier.
 
+See the [Storybook]('https://jaychase.github.io/ngx-picture/?path=/story/ngx-picture--eager-load') for a live demo.
+
 ## Install
 
 ```bash
