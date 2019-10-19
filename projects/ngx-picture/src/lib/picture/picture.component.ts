@@ -5,9 +5,11 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
+  EventEmitter,
   Inject,
   Input,
   OnInit,
+  Output,
   PLATFORM_ID
 } from '@angular/core';
 import { NgxPictureConfig } from '../ngx-picture-config';
@@ -39,6 +41,8 @@ export class PictureComponent implements OnInit, AfterViewInit {
   @Input() lazyLoad: boolean;
 
   @Input() srcInterpolator = this.ngxPictureConfig.srcInterpolator;
+  @Output() loaded = new EventEmitter<Event>();
+
   show = false;
 
   private intersectionObserver: IntersectionObserver;
