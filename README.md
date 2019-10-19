@@ -2,7 +2,7 @@
 
 A component to make properly sized images in next generation formats for Angular a bit easier.
 
-See the [Storybook]('https://jaychase.github.io/ngx-picture/?path=/story/ngx-picture--eager-load') for a live demo.
+See the [Storybook](https://jaychase.github.io/ngx-picture) for a live demo.
 
 ## Install
 
@@ -10,7 +10,7 @@ See the [Storybook]('https://jaychase.github.io/ngx-picture/?path=/story/ngx-pic
 npm i --save ngx-picture
 ```
 
-This library is dependent on the [Angular-cdk]('https://material.angular.io/cdk') so if you haven't got that installed you can add it to your project with:
+This library is dependent on the [Angular-cdk](https://material.angular.io/cdk) so if you haven't got that installed you can add it to your project with:
 
 ```bash
 ng add @angular/cdk
