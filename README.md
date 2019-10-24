@@ -157,7 +157,7 @@ If **lazyLoad** is true the componnent will use an IntersectionObserver (if it i
 For a demo and stroybook for the component clone this repo and run it locally.
 
 ```bash
-https://github.com/JayChase/ngx-picture.git
+git clone https://github.com/JayChase/ngx-picture.git
 cd ngx-picture
 npm i
 npm run build
