@@ -1,6 +1,12 @@
 # ngx-picture
 
-A component to make properly sized images in next generation formats for Angular a bit easier.
+A component to make properly sized, lazy loaded images in next generation formats for Angular a bit easier.
+
+Help improve app performance and fix those [Lighthouse](https://developers.google.com/web/tools/lighthouse) opportunities:
+
+- **Serve images in next-gen formats**
+- **Properly size images**
+- **Defer offscreen images**
 
 See the [Storybook](https://jaychase.github.io/ngx-picture) for a live demo.
 
@@ -16,7 +22,7 @@ This library is dependent on the [Angular-cdk](https://material.angular.io/cdk) 
 ng add @angular/cdk
 ```
 
-### Configure
+## Configure
 
 Import **NgxPictureModule** into **app.module.ts** and call **forRoot** suppyling your config.
 
@@ -74,7 +80,7 @@ export function srcInterpolator(url, imageFormat, breakpoint) {
 export class AppModule {}
 ```
 
-## usage
+## Usage
 
 ```html
 <ngx-picture
@@ -146,7 +152,7 @@ If **lazyLoad** is true the componnent will use an IntersectionObserver (if it i
 </picture>
 ```
 
-## more
+## More
 
 For a demo and stroybook for the component clone this repo and run it locally.
 
@@ -157,13 +163,13 @@ npm i
 npm run build
 ```
 
-### demo
+### Demo
 
 ```bash
 ng s
 ```
 
-### storybook
+### Storybook
 
 ```bash
 npm run storybook

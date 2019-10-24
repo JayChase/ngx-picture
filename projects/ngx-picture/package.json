@@ -1,6 +1,6 @@
 {
   "name": "ngx-picture",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/jaychase/ngx-picture.git"
@@ -16,7 +16,8 @@
     "lazy load",
     "@angular/cdk",
     "serve images in next-gen formats",
-    "properly size images"
+    "properly size images",
+    "defer offscreen images"
   ],
   "author": "JayChase",
   "license": "MIT",
