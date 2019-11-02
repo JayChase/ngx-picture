@@ -1,8 +1,11 @@
 import { AfterViewInit, Component, Inject, ViewChild } from '@angular/core';
-import { NgxPictureConfig, NGX_PICTURE_CONFIG } from 'ngx-picture';
+import {
+  NgxPictureConfig,
+  NGX_PICTURE_CONFIG,
+  PictureComponent
+} from 'ngx-picture';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { PictureComponent } from '../../../ngx-picture/src/public-api';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

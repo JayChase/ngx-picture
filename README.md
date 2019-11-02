@@ -8,7 +8,10 @@ Help improve app performance and fix those [Lighthouse](https://developers.googl
 - **Properly size images**
 - **Defer offscreen images**
 
-See the [Storybook](https://jaychase.github.io/ngx-picture) for a live demo.
+For live demos:
+
+- [Storybook](https://jaychase.github.io/ngx-picture)
+- [StackBlitz](https://stackblitz.com/edit/ngx-picture-blitz)
 
 ## Install
 
