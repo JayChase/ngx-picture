@@ -19,7 +19,7 @@ For live demos:
 npm i --save ngx-picture
 ```
 
-This library is dependent on the [Angular-cdk](https://material.angular.io/cdk) so if you haven't got that installed you can add it to your project with:
+This library is dependent on the [Angular-cdk](https://material.angular.io/cdk), so if you haven't got that installed you can add it to your project with:
 
 ```bash
 ng add @angular/cdk
@@ -27,7 +27,7 @@ ng add @angular/cdk
 
 ## Configure
 
-Import **NgxPictureModule** into **app.module.ts** and call **forRoot** suppyling your config.
+Import **NgxPictureModule** into **app.module.ts** and call **forRoot** suppyling the config.
 
 ```typescript
 import { Breakpoints } from '@angular/cdk/layout';
@@ -93,9 +93,9 @@ export class AppModule {}
 ></ngx-picture>
 ```
 
-If **lazyLoad** is true the componnent will use an IntersectionObserver (if it is supported by the browser) to only render the picture element if the component is in view.
+If **lazyLoad** is true the component will use an IntersectionObserver (if it is supported by the browser) to only render the picture element if the component is in view.
 
-\*Remember Import the **NgxPictureModule** into the relevant module.
+\*Remember to import the **NgxPictureModule** into the relevant module.
 
 ### example of rendered element
 
