@@ -95,6 +95,39 @@ storiesOf('ngx-picture', module)
       defaultViewport: 'sm'
     }
   })
+  .add('fixed height (450px)', () => {
+    return {
+      template: `<div style="height: 450px">
+      <ngx-picture [src]="src" [alt]="alt" ></ngx-picture>
+      </div>`,
+      props: {
+        src: text('src', 'assets/images/banner.jpg'),
+        alt: text('alt', 'banner image')
+      }
+    };
+  })
+  .add('fixed height (150px)', () => {
+    return {
+      template: `<div style="height: 150px">
+      <ngx-picture [src]="src" [alt]="alt" ></ngx-picture>
+      </div>`,
+      props: {
+        src: text('src', 'assets/images/banner.jpg'),
+        alt: text('alt', 'banner image')
+      }
+    };
+  })
+  .add('height auto ', () => {
+    return {
+      template: `<div style="height: auto">
+      <ngx-picture [src]="src" [alt]="alt" ></ngx-picture>
+      </div>`,
+      props: {
+        src: text('src', 'assets/images/banner.jpg'),
+        alt: text('alt', 'banner image')
+      }
+    };
+  })
   .add('eager load', () => {
     return {
       component: PictureComponent,
