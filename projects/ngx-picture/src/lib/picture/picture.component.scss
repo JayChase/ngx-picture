@@ -1,15 +1,15 @@
 :host {
   width: 100%;
-  height: auto;
+  height: inherit;
   display: block;
   min-height: 1px;
 }
 
 picture {
   width: 100%;
-  height: auto;
+  height: inherit;
   img {
     width: 100%;
-    height: auto;
+    height: inherit;
   }
 }
