@@ -7,5 +7,5 @@
       type="image/{{ imageFormat }}"
     />
   </ng-container>
-  <img [src]="src" [alt]="alt" (load)="loaded.emit($event)" />
+  <img [src]="src" [alt]="alt" (load)="loaded.emit($event)" #img />
 </picture>

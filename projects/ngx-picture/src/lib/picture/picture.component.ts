@@ -10,7 +10,8 @@ import {
   Input,
   OnInit,
   Output,
-  PLATFORM_ID
+  PLATFORM_ID,
+  ViewChild
 } from '@angular/core';
 import { NgxPictureConfig } from '../ngx-picture-config';
 import { NGX_PICTURE_CONFIG } from '../ngx-picture-config.token';
@@ -34,6 +35,7 @@ export type ImageFormat =
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PictureComponent implements OnInit, AfterViewInit {
+  @ViewChild('img', { static: false }) img: ElementRef<HTMLImageElement>;
   @Input() src: string;
   @Input() imageFormats = this.ngxPictureConfig.imageFormats;
   @Input() breakpoints = this.ngxPictureConfig.breakpoints;
