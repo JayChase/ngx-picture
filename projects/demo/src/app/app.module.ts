@@ -40,7 +40,7 @@ export function srcInterpolator(url, imageFormat, breakpoint) {
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,

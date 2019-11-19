@@ -9,10 +9,12 @@ import {
   Inject,
   Input,
   OnInit,
+  Optional,
   Output,
   PLATFORM_ID,
   ViewChild
 } from '@angular/core';
+import { WINDOW } from 'ngx-window-token';
 import { NgxPictureConfig } from '../ngx-picture-config';
 import { NGX_PICTURE_CONFIG } from '../ngx-picture-config.token';
 
@@ -52,6 +54,7 @@ export class PictureComponent implements OnInit, AfterViewInit {
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(NGX_PICTURE_CONFIG) private ngxPictureConfig: NgxPictureConfig,
+    @Optional() @Inject(WINDOW) private window,
     private elementRef: ElementRef,
     private changeDetectorRef: ChangeDetectorRef
   ) {}
@@ -63,7 +66,7 @@ export class PictureComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    if (this.lazyLoad && window && 'IntersectionObserver' in window) {
+    if (this.lazyLoad && this.window && 'IntersectionObserver' in this.window) {
       this.intersectionObserver = new IntersectionObserver(
         (entries: Array<IntersectionObserverEntry>) => {
           if (
