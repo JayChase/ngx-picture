@@ -12,6 +12,7 @@ For live demos:
 
 - [Storybook](https://jaychase.github.io/ngx-picture)
 - [StackBlitz](https://stackblitz.com/edit/ngx-picture-blitz)
+- [npm](https://www.npmjs.com/package/ngx-picture)
 
 ## Install
 
@@ -157,7 +158,7 @@ If **lazyLoad** is true the component will use an IntersectionObserver (if it is
 
 ## More
 
-For a demo and stroybook for the component clone this repo and run it locally.
+To clone this repo and run it locally.
 
 ```bash
 git clone https://github.com/JayChase/ngx-picture.git
