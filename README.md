@@ -1,6 +1,6 @@
 # ngx-picture
 
-A component to make properly sized, lazy loaded images in next generation formats for Angular a bit easier.
+An Angular library to help properly size, lazy load images, and use next generation formats.
 
 Help improve app performance and fix those [Lighthouse](https://developers.google.com/web/tools/lighthouse) opportunities:
 
@@ -19,8 +19,6 @@ For live demos:
 ```bash
 npm i --save ngx-picture
 ```
-
-This library is dependent on the [Angular-cdk](https://material.angular.io/cdk), so if you haven't got that installed you can add it to your project with:
 
 ```bash
 ng add @angular/cdk

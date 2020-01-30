@@ -1,11 +1,12 @@
-import { ImageFormat } from './picture/picture.component';
-
-export interface NgxPictureConfig {
-  breakpoints: string[];
-  imageFormats?: ImageFormat[];
+export interface NgxPictureConfig<T = number> {
+  breakpoints: {
+    [key: string]: T;
+  };
+  imageFormats?: any[];
   srcInterpolator: (
     url: string,
-    imageFormat: ImageFormat,
-    breakpoint: string
+    imageFormat: any,
+    breakpoint: string,
+    breakpointValue: T
   ) => string;
 }

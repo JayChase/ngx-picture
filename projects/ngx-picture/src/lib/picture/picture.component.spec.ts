@@ -11,25 +11,13 @@ describe('PictureComponent', () => {
   let fixture: ComponentFixture<PictureComponent>;
   const nxgPictureConfig: NgxPictureConfig = {
     imageFormats: ['jpeg', 'webp'],
-    breakpoints: [Breakpoints.Small, Breakpoints.Medium, Breakpoints.Large],
-    srcInterpolator: (url, imageFormat, breakpoint) => {
-      let width: number;
-
-      switch (breakpoint) {
-        case Breakpoints.Small:
-          width = 600;
-          break;
-        case Breakpoints.Medium:
-          width = 960;
-          break;
-        case Breakpoints.Large:
-          width = 1280;
-          break;
-        default:
-          width = 1280;
-          break;
-      }
-      return `${url}-${width}.${imageFormat}`;
+    breakpoints: {
+      [Breakpoints.Small]: 600,
+      [Breakpoints.Medium]: 960,
+      [Breakpoints.Large]: 1280
+    },
+    srcInterpolator: (url, imageFormat, breakpoint, breakpointValue) => {
+      return `${url}-${breakpointValue}.${imageFormat}`;
     }
   };
   const testUrl = 'http://test';
@@ -76,10 +64,10 @@ describe('PictureComponent', () => {
 
     it('should render a srcset for each breakpoint', () => {
       const sources = fixture.debugElement.queryAll(By.css('source'));
-      const hasAllBreakpoints = nxgPictureConfig.breakpoints
-        .map(breakpoint => {
+      const hasAllBreakpoints = Object.keys(nxgPictureConfig.breakpoints)
+        .map(breakpointKey => {
           return (
-            sources.filter(source => source.properties.media === breakpoint)
+            sources.filter(source => source.properties.media === breakpointKey)
               .length === 2
           );
         })
@@ -111,13 +99,13 @@ describe('PictureComponent', () => {
   });
 
   describe('srcset interpolation', () => {
-    const breakpoint = 'test';
+    const breakpoints = { test: 40 };
     const imageFormat = 'jpeg';
 
     beforeEach(() => {
       fixture = TestBed.createComponent(PictureComponent);
       component = fixture.componentInstance;
-      component.breakpoints = [breakpoint];
+      component.breakpoints = breakpoints;
       component.imageFormats = [imageFormat];
       component.src = testUrl;
     });
@@ -128,7 +116,8 @@ describe('PictureComponent', () => {
       expect(component.srcInterpolator).toHaveBeenCalledWith(
         testUrl,
         imageFormat,
-        breakpoint
+        Object.keys(breakpoints)[0],
+        breakpoints.test
       );
     });
   });

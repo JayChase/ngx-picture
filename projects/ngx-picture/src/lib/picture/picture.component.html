@@ -1,9 +1,11 @@
 <picture *ngIf="show">
   <ng-container *ngFor="let imageFormat of imageFormats">
     <source
-      *ngFor="let breakpoint of breakpoints; index as i"
-      [srcset]="srcInterpolator(src, imageFormat, breakpoint)"
-      [media]="breakpoint"
+      *ngFor="let breakpoint of breakpoints | keyvalue"
+      [srcset]="
+        srcInterpolator(src, imageFormat, breakpoint.key, breakpoint.value)
+      "
+      [media]="breakpoint.key"
       type="image/{{ imageFormat }}"
     />
   </ng-container>

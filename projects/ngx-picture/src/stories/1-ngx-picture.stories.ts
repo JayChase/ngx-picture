@@ -1,4 +1,3 @@
-import { Breakpoints } from '@angular/cdk/layout';
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import { DEFAULT_BREAKPOINTS } from '../lib/default-breakpoints';
@@ -43,34 +42,19 @@ const viewports = {
   }
 };
 
-export function srcInterpolator(url, imageFormat, breakpoint) {
-  let width: number;
-
-  switch (breakpoint) {
-    case Breakpoints.XSmall:
-      width = 300;
-      break;
-    case Breakpoints.Small:
-      width = 600;
-      break;
-    case Breakpoints.Medium:
-      width = 960;
-      break;
-    case Breakpoints.Large:
-      width = 1280;
-      break;
-    case Breakpoints.XLarge:
-      width = 1920;
-      break;
-    default:
-      width = 1280;
-      break;
-  }
-
-  return `${url.split('.')[0]}-${width}.${
-    imageFormat === 'jpeg' ? 'jpg' : 'webp'
-  }`;
-}
+const config = {
+  breakpoints: DEFAULT_BREAKPOINTS,
+  imageFormats: ['jpg'],
+  srcInterpolator: (
+    url: string,
+    imageFormat: any,
+    breakpoint: string,
+    breakpointValue: number
+  ) =>
+    `${url.split('.')[0]}-${breakpointValue}.${
+      imageFormat === 'jpeg' ? 'jpg' : 'webp'
+    }`
+};
 
 storiesOf('ngx-picture', module)
   .addDecorator(
@@ -79,11 +63,7 @@ storiesOf('ngx-picture', module)
       providers: [
         {
           provide: NGX_PICTURE_CONFIG,
-          useValue: {
-            breakpoints: DEFAULT_BREAKPOINTS,
-            imageFormats: ['webp', 'jpeg'],
-            srcInterpolator
-          }
+          useValue: config
         }
       ]
     })
