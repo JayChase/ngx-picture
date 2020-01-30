@@ -37,35 +37,21 @@ Import **NgxPictureModule** into **app.module.ts** and call **forRoot** suppylin
 ```typescript
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { DEFAULT_BREAKPOINTS, NgxPictureModule } from 'ngx-picture';
+import {
+  DEFAULT_BREAKPOINTS,
+  ImageFormat,
+  NgxPictureModule
+} from 'ngx-picture';
 import { AppComponent } from './app.component';
 
 // 1: supply a function to create the srcset urls for each breakpoint
-export function srcInterpolator(url, imageFormat, breakpoint) {
-  let width: number;
-
-  switch (breakpoint) {
-    case Breakpoints.XSmall:
-      width = 300;
-      break;
-    case Breakpoints.Small:
-      width = 600;
-      break;
-    case Breakpoints.Medium:
-      width = 960;
-      break;
-    case Breakpoints.Large:
-      width = 1280;
-      break;
-    case Breakpoints.XLarge:
-      width = 1920;
-      break;
-    default:
-      width = 1280;
-      break;
-  }
-
-  return `${url.split('.')[0]}-${width}.${
+export function srcInterpolator(
+  url: string,
+  imageFormat: ImageFormat,
+  breakpoint: string,
+  breakpointValue: number
+) {
+  return `${url.split('.')[0]}-${breakpointValue}.${
     imageFormat === 'jpeg' ? 'jpg' : 'webp'
   }`;
 }
@@ -77,10 +63,34 @@ export function srcInterpolator(url, imageFormat, breakpoint) {
     ,
     NgxPictureModule.forRoot({
       breakpoints: DEFAULT_BREAKPOINTS, //2. the break points to create sources for
-      imageFormats: ['webp', 'jpeg'], //3. the image formats to create sources for
+      imageFormats: ['webp', 'jpeg'], //3. the image formats to create sources for. *
       srcInterpolator
     })
   ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
+
+\* Image formats must be in order of precedence. In this example if **webp** s supported it will be used.
+
+### Using the bundled configurations (Cloudinary, ImageKit and GraphCMS)
+
+```typescript
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import {
+  DEFAULT_BREAKPOINTS,
+  ImageFormat,
+  NgxPictureModule,
+  CLOUDINARY_CONFIG
+} from 'ngx-picture';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, NgxPictureModule.forRoot(CLOUDINARY_CONFIG)],
   providers: [],
   bootstrap: [AppComponent]
 })
@@ -100,6 +110,13 @@ export class AppModule {}
 If **lazyLoad** is true the component will use an IntersectionObserver (if it is supported by the browser) to only render the picture element if the component is in view.
 
 \*Remember to import the **NgxPictureModule** into the relevant module.
+
+### Custom configurations
+
+override src interpolator on default configs
+custom breakpoints
+change the breakpoint value type
+changing the image template
 
 ### example of rendered element
 

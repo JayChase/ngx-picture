@@ -9,5 +9,12 @@
       type="image/{{ imageFormat }}"
     />
   </ng-container>
-  <img [src]="src" [alt]="alt" (load)="loaded.emit($event)" #img />
+  <ng-container
+    [ngTemplateOutlet]="imgTemplate || defaultImageTemplate"
+    [ngTemplateOutletContext]="{ $implicit: { src: src, alt: alt } }"
+  >
+  </ng-container>
+  <ng-template #defaultImageTemplate>
+    <img [src]="src" [alt]="alt" (load)="loaded.emit($event)" #img />
+  </ng-template>
 </picture>

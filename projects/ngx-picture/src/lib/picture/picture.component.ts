@@ -4,6 +4,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  ContentChild,
   ElementRef,
   EventEmitter,
   Inject,
@@ -12,6 +13,7 @@ import {
   Optional,
   Output,
   PLATFORM_ID,
+  TemplateRef,
   ViewChild
 } from '@angular/core';
 import { WINDOW } from 'ngx-window-token';
@@ -38,6 +40,7 @@ export type ImageFormat =
 })
 export class PictureComponent implements OnInit, AfterViewInit {
   @ViewChild('img', { static: false }) img: ElementRef<HTMLImageElement>;
+  @ContentChild('imgTemplate', { static: false }) imgTemplate: TemplateRef<any>;
   @Input() src: string;
   @Input() imageFormats = this.ngxPictureConfig.imageFormats;
   @Input() breakpoints = this.ngxPictureConfig.breakpoints;
