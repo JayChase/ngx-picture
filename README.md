@@ -8,6 +8,12 @@ Help improve app performance and fix those [Lighthouse](https://developers.googl
 - **Properly size images**
 - **Defer offscreen images**
 
+Ready made configurations available for:
+
+- [Cloudinary](https://cloudinary.com/)
+- [imagekit.io](https://imagekit.io/)
+- [GraphCMS](https://graphcms.com/)
+
 For live demos:
 
 - [Storybook](https://jaychase.github.io/ngx-picture)
@@ -29,7 +35,6 @@ ng add @angular/cdk
 Import **NgxPictureModule** into **app.module.ts** and call **forRoot** suppyling the config.
 
 ```typescript
-import { Breakpoints } from '@angular/cdk/layout';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { DEFAULT_BREAKPOINTS, NgxPictureModule } from 'ngx-picture';

@@ -4,12 +4,16 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DEFAULT_BREAKPOINTS, NgxPictureModule } from 'ngx-picture';
+import {
+  DEFAULT_BREAKPOINTS,
+  ImageFormat,
+  NgxPictureModule
+} from 'ngx-picture';
 import { AppComponent } from './app.component';
 
 export function srcInterpolator(
   url: string,
-  imageFormat: any,
+  imageFormat: ImageFormat,
   breakpoint: string,
   breakpointValue: number
 ) {

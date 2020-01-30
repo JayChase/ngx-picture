@@ -2,7 +2,10 @@ import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import { DEFAULT_BREAKPOINTS } from '../lib/default-breakpoints';
 import { NGX_PICTURE_CONFIG } from '../lib/ngx-picture-config.token';
-import { PictureComponent } from '../lib/picture/picture.component';
+import {
+  ImageFormat,
+  PictureComponent
+} from '../lib/picture/picture.component';
 
 const viewports = {
   XSmall: {
@@ -47,7 +50,7 @@ const config = {
   imageFormats: ['jpg', 'webp'],
   srcInterpolator: (
     url: string,
-    imageFormat: any,
+    imageFormat: ImageFormat,
     breakpoint: string,
     breakpointValue: number
   ) =>
