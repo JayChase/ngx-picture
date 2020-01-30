@@ -5,36 +5,36 @@ import { NGX_PICTURE_CONFIG } from '../lib/ngx-picture-config.token';
 import { PictureComponent } from '../lib/picture/picture.component';
 
 const viewports = {
-  xs: {
-    name: 'x-small',
+  XSmall: {
+    name: 'XSmall',
     styles: {
       width: '400px',
       height: '100%'
     }
   },
-  sm: {
-    name: 'small',
+  Small: {
+    name: 'Small',
     styles: {
       width: '800px',
       height: '100%'
     }
   },
-  md: {
-    name: 'medium',
+  Medium: {
+    name: 'Medium',
     styles: {
-      width: '1200px',
+      width: '1100px',
       height: '100%'
     }
   },
-  lg: {
-    name: 'large',
+  Large: {
+    name: 'Large',
     styles: {
       width: '1600px',
       height: '100%'
     }
   },
-  xl: {
-    name: 'x-large',
+  XLarge: {
+    name: 'XLarge',
     styles: {
       width: '2000px',
       height: '100%'
@@ -44,7 +44,7 @@ const viewports = {
 
 const config = {
   breakpoints: DEFAULT_BREAKPOINTS,
-  imageFormats: ['jpg'],
+  imageFormats: ['jpg', 'webp'],
   srcInterpolator: (
     url: string,
     imageFormat: any,
@@ -72,7 +72,7 @@ storiesOf('ngx-picture', module)
   .addParameters({
     viewport: {
       viewports,
-      defaultViewport: 'sm'
+      defaultViewport: 'XSmall'
     }
   })
   .add('fixed height (450px)', () => {
