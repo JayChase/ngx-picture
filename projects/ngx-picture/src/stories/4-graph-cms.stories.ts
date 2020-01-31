@@ -75,7 +75,7 @@ storiesOf('Graph CMS config', module)
       component: PictureComponent,
       props: {
         src: text('src', 'https://media.graphcms.com/SszEv2TRLilQXNBnDqBQ'),
-        alt: text('alt', 'osaka night'),
+        alt: text('alt', 'Shinjuku'),
         lazyLoad: boolean('lazyLoad', true)
       }
     };
