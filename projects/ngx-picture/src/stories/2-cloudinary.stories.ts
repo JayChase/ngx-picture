@@ -42,14 +42,6 @@ const viewports = {
   }
 };
 
-const props = {
-  src: text(
-    'src',
-    'https://res.cloudinary.com/usefuldev-cloudinary/image/upload/v1580217403/rainbow-bridge_dr2pyi.jpg'
-  ),
-  alt: text('alt', 'rainbow bridge')
-};
-
 storiesOf('Cloudinary config', module)
   .addDecorator(
     moduleMetadata({

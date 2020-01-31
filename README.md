@@ -26,10 +26,6 @@ For live demos:
 npm i --save ngx-picture
 ```
 
-```bash
-ng add @angular/cdk
-```
-
 ## Configure
 
 Import **NgxPictureModule** into **app.module.ts** and call **forRoot** suppyling the config.
