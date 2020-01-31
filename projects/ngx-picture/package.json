@@ -5,6 +5,8 @@
     "type": "git",
     "url": "https://github.com/jaychase/ngx-picture.git"
   },
+  "description": "An Angular library to help properly size, lazy load images, and use next generation formats",
+  "homepage": "https://github.com/jaychase/ngx-picture",
   "bugs": {
     "url": "https://github.com/jaychase/ngx-picture/issues"
   },
@@ -14,7 +16,9 @@
     "image",
     "picture",
     "lazy load",
-    "@angular/cdk",
+    "Cloudinary",
+    "Graph CMS",
+    "ImageKit",
     "serve images in next-gen formats",
     "properly size images",
     "defer offscreen images",
