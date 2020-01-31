@@ -11,7 +11,7 @@ import { PictureComponent } from './picture/picture.component';
   entryComponents: [PictureComponent]
 })
 export class NgxPictureModule {
-  static forRoot(config: NgxPictureConfig): ModuleWithProviders {
+  static forRoot<T>(config: NgxPictureConfig<T>): ModuleWithProviders {
     return {
       ngModule: NgxPictureModule,
       providers: [

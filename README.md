@@ -97,7 +97,7 @@ import { AppComponent } from './app.component';
 export class AppModule {}
 ```
 
-## Usage
+## Using the ngx-picture component
 
 ```html
 <ngx-picture
@@ -111,14 +111,89 @@ If **lazyLoad** is true the component will use an IntersectionObserver (if it is
 
 \*Remember to import the **NgxPictureModule** into the relevant module.
 
-### Custom configurations
+## Advanced configuration
 
-override src interpolator on default configs
-custom breakpoints
-change the breakpoint value type
-changing the image template
+### Changing the breakpoint value type and srcInterpolator
 
-### example of rendered element
+**NgxPictureConfig** is generic so you can change the brreakpoint values to anuthing required in the **srcInterPolator** function. This example is using the [Angular CDK](https://material.angular.io/cdk/layout/overview) breakpoints for the breakpoint keys.
+
+```typescript
+import { Breakpoints } from '@angular/cdk/layout';
+
+export interface Dimensions {
+  h: number;
+  w: number;
+}
+
+const ngxPictureConfig: NgxPictureConfig<Dimensions> = {
+  breakpoints: {
+    [Breakpoints.XSmall]: { h: 10, w: 10 },
+    [Breakpoints.Medium]: { h: 100, w: 100 },
+    [Breakpoints.Large]: { h: 200, w: 200 }
+  },
+  imageFormats: ['webp', 'jpg'],
+  srcInterpolator: (
+    url: string,
+    imageFormat: ImageFormat,
+    breakpoint: string,
+    breakpointValue: Dimensions
+  ) => `${url}/w:${breakpointValue.w}/h:${breakpointValue.h}`
+};
+
+export function srcInterpolator(
+  url: string,
+  imageFormat: ImageFormat,
+  breakpoint: string,
+  breakpointValue: number
+) {
+  return `${url.split('.')[0]}-${breakpointValue}.${
+    imageFormat === 'jpeg' ? 'jpg' : 'webp'
+  }`;
+}
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatListModule,
+    NgxPictureModule.forRoot(ngxPictureConfig)
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
+
+### Changing the image template
+
+To use a custom img element provide an **ngTemplate** called **#imgTemplate**.
+
+```html
+<ngx-picture
+  src="assets/images/banner.jpg"
+  alt="test"
+  [lazyLoad]="true"
+  #picture
+>
+  <ng-template #imgTemplate let-imageData>
+    <img class="custom-template" [src]="imageData.src" [alt]="imageData.alt" />
+  </ng-template>
+</ngx-picture>
+```
+
+The data context for the template is:
+
+```typescript
+{
+  src: string,
+  alt: string
+}
+```
+
+## Example of rendered element
 
 ```html
 <picture>
