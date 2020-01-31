@@ -25,6 +25,14 @@
     alt="test"
     [lazyLoad]="true"
     #picture
-  ></ngx-picture>
+  >
+    <ng-template #imgTemplate let-imageData>
+      <img
+        class="custom-template"
+        [src]="imageData.src"
+        [alt]="imageData.alt"
+      />
+    </ng-template>
+  </ngx-picture>
   <p class="mat-body-1">{{ pictureDetails$ | async }}</p>
 </mat-card>
