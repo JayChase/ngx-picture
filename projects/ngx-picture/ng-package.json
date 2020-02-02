@@ -3,5 +3,6 @@
   "dest": "../../dist/ngx-picture",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "whitelistedNonPeerDependencies": ["ngx-window-token"]
 }
