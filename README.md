@@ -76,12 +76,7 @@ export class AppModule {}
 ```typescript
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {
-  DEFAULT_BREAKPOINTS,
-  ImageFormat,
-  NgxPictureModule,
-  CLOUDINARY_CONFIG
-} from 'ngx-picture';
+import { NgxPictureModule, CLOUDINARY_CONFIG } from 'ngx-picture';
 import { AppComponent } from './app.component';
 
 @NgModule({
