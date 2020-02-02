@@ -1,6 +1,6 @@
 {
   "name": "ngx-picture",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/jaychase/ngx-picture.git"
@@ -27,9 +27,11 @@
   "author": "JayChase",
   "license": "MIT",
   "private": false,
+  "dependencies": {
+    "ngx-window-token": "^2.0.1"
+  },
   "peerDependencies": {
     "@angular/common": "^8.2.9",
-    "@angular/core": "^8.2.9",
-    "ngx-window-token": "^2.0.1"
+    "@angular/core": "^8.2.9"
   }
 }
