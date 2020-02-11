@@ -38,7 +38,7 @@ export type ImageFormat =
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PictureComponent implements OnInit, AfterViewInit {
-  @ContentChild('imgTemplate', { static: false }) imgTemplate: TemplateRef<
+  @ContentChild('imgTemplate') imgTemplate: TemplateRef<
     HTMLImageElement
   >;
   @Input() src: string;

@@ -14,7 +14,7 @@ import { map } from 'rxjs/operators';
 export class AppComponent implements AfterViewInit {
   breakpoints = this.ngxPictureConfig.breakpoints;
 
-  @ViewChild('picture', { static: false })
+  @ViewChild('picture')
   picture: PictureComponent;
 
   pictureDetails$: Observable<string>;
