@@ -109,8 +109,7 @@
           "options": {
             "tsConfig": [
               "projects/demo/tsconfig.app.json",
-              "projects/demo/tsconfig.spec.json",
-              "projects/demo/e2e/tsconfig.json"
+              "projects/demo/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -131,7 +130,7 @@
           "builder": "@angular-devkit/build-angular:server",
           "options": {
             "outputPath": "dist/server",
-            "main": "projects/demo/src/main.server.ts",
+            "main": "projects/demo/server.ts",
             "tsConfig": "projects/demo/tsconfig.server.json"
           },
           "configurations": {
@@ -145,6 +144,30 @@
               "sourceMap": false,
               "optimization": true
             }
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "demo:build",
+            "serverTarget": "demo:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "demo:build:production",
+              "serverTarget": "demo:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "demo:build:production",
+            "serverTarget": "demo:server:production",
+            "routes": ["/"]
+          },
+          "configurations": {
+            "production": {}
           }
         }
       }
@@ -160,13 +183,13 @@
           "options": {
             "tsConfig": "projects/ngx-picture/tsconfig.lib.json",
             "project": "projects/ngx-picture/ng-package.json"
-          }
-        ,          "configurations": {
+          },
+          "configurations": {
             "production": {
               "tsConfig": "projects/ngx-picture/tsconfig.lib.prod.json"
             }
           }
-},
+        },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
