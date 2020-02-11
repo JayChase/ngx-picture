@@ -1,11 +1,11 @@
 {
   "name": "ngx-picture",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/jaychase/ngx-picture.git"
   },
-  "description": "An Angular library to help properly size, lazy load images, and use next generation formats",
+  "description": "An Angular library to properly size, lazy load images, and use next generation formats",
   "homepage": "https://github.com/jaychase/ngx-picture",
   "bugs": {
     "url": "https://github.com/jaychase/ngx-picture/issues"
@@ -31,7 +31,7 @@
     "ngx-window-token": "^2.0.1"
   },
   "peerDependencies": {
-    "@angular/common": "^8.2.9",
-    "@angular/core": "^8.2.9"
+    "@angular/common": ">=6.0.0 || >=7.0.0 || >=8.0.0 || >=9.0.0",
+    "@angular/core": ">=6.0.0 || >=7.0.0 || >=8.0.0 || >=9.0.0"
   }
 }

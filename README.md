@@ -2,7 +2,7 @@
 
 An Angular library to help properly size, lazy load images, and use next generation formats.
 
-Help improve app performance and fix those [Lighthouse](https://developers.google.com/web/tools/lighthouse) opportunities:
+Help improve app performance and fix common [Lighthouse](https://developers.google.com/web/tools/lighthouse) opportunities:
 
 - **Serve images in next-gen formats**
 - **Properly size images**
@@ -98,7 +98,7 @@ export class AppModule {}
 ></ngx-picture>
 ```
 
-If **lazyLoad** is true the component will use an IntersectionObserver (if it is supported by the browser) to only render the picture element if the component is in view.
+If **lazyLoad** is true the component will use an [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) (if it is supported by the browser) to only render the picture element if the component is in view.
 
 \*Remember to import the **NgxPictureModule** into the relevant module.
 
@@ -106,7 +106,7 @@ If **lazyLoad** is true the component will use an IntersectionObserver (if it is
 
 ### Changing the breakpoint value type and srcInterpolator
 
-**NgxPictureConfig** is generic so you can change the brreakpoint values to anuthing required in the **srcInterPolator** function. This example is using the [Angular CDK](https://material.angular.io/cdk/layout/overview) breakpoints for the breakpoint keys.
+**NgxPictureConfig** is generic so you can change the brreakpoint values to anything required in the **srcInterPolator** function. This example is using the [Angular CDK](https://material.angular.io/cdk/layout/overview) breakpoints for the breakpoint keys.
 
 ```typescript
 import { Breakpoints } from '@angular/cdk/layout';
