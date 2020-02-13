@@ -22,8 +22,16 @@ For live demos:
 
 ## Install
 
+Angular 9+
+
 ```bash
-npm i --save ngx-picture
+npm i --save ngx-picture@latest
+```
+
+Angular < 9
+
+```bash
+npm i --save ngx-picture@2.0.4
 ```
 
 ## Configure
