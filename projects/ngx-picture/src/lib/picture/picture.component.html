@@ -15,6 +15,12 @@
   >
   </ng-container>
   <ng-template #defaultImageTemplate>
-    <img [src]="src" [alt]="alt" (load)="loaded.emit($event)" #img />
+    <img
+      [src]="src"
+      [alt]="alt"
+      (load)="loaded.emit($event)"
+      loading="lazy"
+      #img
+    />
   </ng-template>
 </picture>

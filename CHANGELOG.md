@@ -1,3 +1,9 @@
+# 2.0.8
+
+## Improvements
+
+- set native lazy loading true on img by default (ready for browser support)
+
 # 2.0.0
 
 ## Breaking changes

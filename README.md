@@ -246,7 +246,7 @@ The data context for the template is:
     media="(min-width: 1920px)"
     type="image/jpeg"
   />
-  <img src="assets/images/banner.jpg" alt="test" />
+  <img src="assets/images/banner.jpg" alt="test" loading="lazy" />
 </picture>
 ```
 
