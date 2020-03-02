@@ -195,7 +195,7 @@ The data context for the template is:
 ## Example of rendered element
 
 ```html
-<picture>
+<picture class="ngx-picture__picture">
   <source
     srcset="assets/images/banner-300.webp"
     media="(max-width: 599.99px)"
@@ -246,8 +246,28 @@ The data context for the template is:
     media="(min-width: 1920px)"
     type="image/jpeg"
   />
-  <img src="assets/images/banner.jpg" alt="test" loading="lazy" />
+  <img
+    class="ngx-picture__picture__img"
+    src="assets/images/banner.jpg"
+    alt="test"
+    loading="lazy"
+  />
 </picture>
+```
+
+## Styling
+
+The **picture** element in the component has the class **ngx-picture\_\_picture** and the img element has the class **ngx-picture**picture**img**.
+
+```scss
+.your-picture-class {
+  .ngx-picture__picture {
+    width: 100%;
+    .ngx-picture__picture__img {
+      width: 100%;
+    }
+  }
+}
 ```
 
 ## More

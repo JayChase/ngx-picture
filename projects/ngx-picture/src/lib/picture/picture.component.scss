@@ -5,10 +5,10 @@
   min-height: 1px;
 }
 
-picture {
+.ngx-picture__picture {
   width: 100%;
   height: inherit;
-  img {
+  .ngx-picture__picture__img {
     width: 100%;
     height: inherit;
   }

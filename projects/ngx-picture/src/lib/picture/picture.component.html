@@ -1,4 +1,4 @@
-<picture *ngIf="show">
+<picture class="ngx-picture__picture" *ngIf="show">
   <ng-container *ngFor="let imageFormat of imageFormats">
     <source
       *ngFor="let breakpoint of breakpoints | keyvalue"
@@ -19,6 +19,7 @@
       [src]="src"
       [alt]="alt"
       (load)="loaded.emit($event)"
+      class="ngx-picture__picture__img"
       loading="lazy"
       #img
     />

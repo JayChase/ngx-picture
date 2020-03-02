@@ -1,8 +1,12 @@
+# 2.0.9
+
+- Added classes to picture and imag elements to make more stylable
+
 # 2.0.8
 
 ## Improvements
 
-- set native lazy loading true on img by default (ready for browser support)
+- Set native lazy loading true on img by default (ready for browser support)
 
 # 2.0.0
 

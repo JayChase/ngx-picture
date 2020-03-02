@@ -1,4 +1,5 @@
-import { boolean, text, withKnobs } from '@storybook/addon-knobs';
+import { Component, Input } from '@angular/core';
+import { boolean, number, text, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import { DEFAULT_BREAKPOINTS } from '../lib/default-breakpoints';
 import { NGX_PICTURE_CONFIG } from '../lib/ngx-picture-config.token';
@@ -45,6 +46,25 @@ const viewports = {
   }
 };
 
+@Component({
+  selector: 'ngx-test-component',
+  template: `
+    <div
+      [style.height.px]="height"
+      [style.width.px]="width"
+      style="background: lightgray"
+      fxLayout="row"
+      fxLayoutAlign="stretch stretch"
+    >
+      <ng-content></ng-content>
+    </div>
+  `
+})
+class TestComponent {
+  @Input() height: number;
+  @Input() width: number;
+}
+
 const config = {
   breakpoints: DEFAULT_BREAKPOINTS,
   imageFormats: ['jpg', 'webp'],
@@ -62,7 +82,7 @@ const config = {
 storiesOf('ngx-picture', module)
   .addDecorator(
     moduleMetadata({
-      declarations: [PictureComponent],
+      declarations: [PictureComponent, TestComponent],
       providers: [
         {
           provide: NGX_PICTURE_CONFIG,
@@ -80,8 +100,12 @@ storiesOf('ngx-picture', module)
   })
   .add('eager load', () => {
     return {
-      component: PictureComponent,
+      template: `<ngx-test-component [height]="height" [width]="width">
+        <ngx-picture [src]="src" [alt]="alt"></ngx-picture>
+      </ngx-test-component>`,
       props: {
+        width: number('width', 600),
+        height: number('height', 400),
         src: text('src', 'assets/images/banner.jpg'),
         alt: text('alt', 'banner image')
       }
