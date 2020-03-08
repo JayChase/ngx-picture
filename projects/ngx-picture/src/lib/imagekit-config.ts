@@ -9,10 +9,12 @@ export function imagekitSrcInterpolator(
   breakpointValue: number
 ): string {
   const fileName = url.substring(url.lastIndexOf('/'));
-  return `${url.replace(
-    fileName,
-    '/tr:w-' + breakpointValue + ',f-' + imageFormat + fileName
-  )}`;
+  return url
+    ? `${url.replace(
+        fileName,
+        '/tr:w-' + breakpointValue + ',f-' + imageFormat + fileName
+      )}`
+    : null;
 }
 
 export const IMAGEKIT_CONFIG: NgxPictureConfig<number> = {

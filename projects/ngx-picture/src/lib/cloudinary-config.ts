@@ -8,10 +8,12 @@ export function cloudinarySrcInterpolator(
   breakpoint: string,
   breakpointValue: number
 ): string {
-  return `${url.replace(
-    'upload/',
-    'upload/w_' + breakpointValue + '/f_' + imageFormat + '/'
-  )}`;
+  return url
+    ? `${url.replace(
+        'upload/',
+        'upload/w_' + breakpointValue + '/f_' + imageFormat + '/'
+      )}`
+    : null;
 }
 
 export const CLOUDINARY_CONFIG: NgxPictureConfig<number> = {

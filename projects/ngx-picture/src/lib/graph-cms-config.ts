@@ -8,9 +8,11 @@ export function graphCmsSrcInterpolator(
   breakpoint: string,
   breakpointValue: number
 ): string {
-  return `https://media.graphcms.com/resize=w:${breakpointValue},fit:scale/output=format:${
-    imageFormat === 'jpeg' ? 'jpg' : 'webp'
-  }/${url.replace('https://media.graphcms.com/', '')}`;
+  return url
+    ? `https://media.graphcms.com/resize=w:${breakpointValue},fit:scale/output=format:${
+        imageFormat === 'jpeg' ? 'jpg' : 'webp'
+      }/${url.replace('https://media.graphcms.com/', '')}`
+    : null;
 }
 
 export const GRAPH_CMS_CONFIG: NgxPictureConfig<number> = {

@@ -1,3 +1,7 @@
+# 2.0.10
+
+- handle url null in bundled configs
+
 # 2.0.9
 
 - Added classes to picture and imag elements to make more stylable
